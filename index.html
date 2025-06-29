@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Askımm Barısalimmiii</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-image: url(reklam4.jpg);
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .main-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 30px 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .content-box img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 12px 30px;
+      margin: 0 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    #evet {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #hayir {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+
+    /* Büyük kenar görseller */
+    .sol-orta-resim {
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: auto;
+      z-index: 0;
+    }
+
+    .sag-orta-resim {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: auto;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Büyük sağ ve sol görseller -->
+  <img src="reklam1.jpg" alt="Sol Orta Görsel" class="sol-orta-resim" />
+  <img src="reklam1.jpg" alt="Sağ Orta Görsel" class="sag-orta-resim" />
+
+  <!-- Ortadaki içerik -->
+  <div class="main-layout">
+    <div>
+      <div class="content-box">
+        <img src="sevgiwebipp2.png" alt="Metin Sol Görsel" />
+        <h1>ASKİİMMM BARİSALİMMİİİ???</h1>
+        <img src="sevgiwebipp2.png" alt="Metin Sağ Görsel" />
+      </div>
+      <div class="buttons">
+        <button id="evet">EVET</button>
+        <button id="hayir">HAYIR</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const evetBtn = document.getElementById('evet');
+    const hayirBtn = document.getElementById('hayir');
+
+    let evetScale = 1;
+
+    hayirBtn.addEventListener('click', () => {
+      evetScale += 0.1;
+      evetBtn.style.transform = `scale(${evetScale})`;
+
+      const pageWidth = window.innerWidth;
+      const pageHeight = window.innerHeight;
+      const btnWidth = hayirBtn.offsetWidth;
+      const btnHeight = hayirBtn.offsetHeight;
+
+      const maxX = pageWidth - btnWidth;
+      const maxY = pageHeight - btnHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      hayirBtn.style.position = 'fixed';
+      hayirBtn.style.left = randomX + 'px';
+      hayirBtn.style.top = randomY + 'px';
+    });
+
+    evetBtn.addEventListener('click', () => {
+      window.location.href = 'seviyorum.html';
+    });
+  </script>
+</body>
+</html>
